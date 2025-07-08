@@ -124,13 +124,15 @@ export default function AserraderoCatacho() {
                 Solicitar información
               </Button>
             </a>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-[#211007] bg-transparent"
-            >
-              Ver catálogo
-            </Button>
+            <a href="/catalogo">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-white text-white hover:bg-white hover:text-[#211007] bg-transparent"
+              >
+                Ver catálogo
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -148,8 +150,13 @@ export default function AserraderoCatacho() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {woodTypes.map((wood, index) => (
-              <Card key={index} className="bg-white shadow-lg hover:shadow-xl transition-shadow">
+            {woodTypes.slice(0, 3).map((wood, index) => (
+              <div
+                key={index}
+                className="group bg-white shadow-lg hover:shadow-xl transition-shadow rounded-lg overflow-visible cursor-pointer md:relative"
+                style={{ minHeight: undefined, height: undefined }}
+              >
+                {/* Imagen SIEMPRE visible */}
                 <div className="aspect-video relative">
                   <Image
                     src={wood.image || "/placeholder.svg"}
@@ -158,10 +165,35 @@ export default function AserraderoCatacho() {
                     className="object-cover rounded-t-lg"
                   />
                 </div>
-                <CardContent className="p-6">
+                {/* Título siempre visible */}
+                <div className="p-6">
+                  <h4 className="text-xl font-bold text-[#211007] mb-2">{wood.name}</h4>
+                  {/* Detalles solo en móvil */}
+                  <div className="md:hidden">
+                    <p className="text-[#211007] mb-4 text-sm">{wood.description}</p>
+                    <div className="mb-4">
+                      <p className="text-sm font-semibold text-[#211007] mb-2">Usos principales:</p>
+                      <div className="flex flex-wrap gap-2">
+                        {wood.uses.map((use, useIndex) => (
+                          <span key={useIndex} className="bg-[#f4f4f4] text-[#211007] px-2 py-1 rounded text-xs">
+                            {use}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    <a href="#contacto">
+                      <Button className="w-full bg-[#211007] hover:bg-[#000000] text-white mt-auto">Solicitar información</Button>
+                    </a>
+                  </div>
+                </div>
+                {/* Detalles SOLO en hover en escritorio */}
+                <div
+                  className="hidden md:flex md:absolute md:left-0 md:top-0 md:w-full md:h-full bg-white rounded-lg p-6 z-10 flex-col justify-center shadow-2xl transition-all duration-300
+                  md:opacity-0 md:scale-95 md:pointer-events-none md:group-hover:opacity-100 md:group-hover:scale-105 md:group-hover:pointer-events-auto"
+                  style={{ minHeight: '320px', height: '320px' }}
+                >
                   <h4 className="text-xl font-bold text-[#211007] mb-2">{wood.name}</h4>
                   <p className="text-[#211007] mb-4 text-sm">{wood.description}</p>
-
                   <div className="mb-4">
                     <p className="text-sm font-semibold text-[#211007] mb-2">Usos principales:</p>
                     <div className="flex flex-wrap gap-2">
@@ -172,11 +204,19 @@ export default function AserraderoCatacho() {
                       ))}
                     </div>
                   </div>
-
-                  <Button className="w-full bg-[#211007] hover:bg-[#000000] text-white">Solicitar información</Button>
-                </CardContent>
-              </Card>
+                  <a href="#contacto">
+                    <Button className="w-full bg-[#211007] hover:bg-[#000000] text-white mt-auto">Solicitar información</Button>
+                  </a>
+                </div>
+              </div>
             ))}
+          </div>
+          <div className="flex justify-center mt-8">
+            <a href="/catalogo">
+              <Button size="lg" className="bg-[#bea99f] hover:bg-[#211007] text-white">
+                Ver todo el catálogo
+              </Button>
+            </a>
           </div>
         </div>
       </section>
