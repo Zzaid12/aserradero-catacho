@@ -268,9 +268,15 @@ export default function AserraderoCatacho() {
             <br />
             Nuestros expertos te ayudarán a encontrar la madera perfecta
           </p>
-          <Button size="lg" className="bg-white text-[#211007] hover:bg-[#f4f4f4]">
-            Llámanos
-          </Button>
+          <a
+            href="https://wa.me/34690787489" // Cambia este número por el de la dueña en formato internacional sin + ni espacios
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button size="lg" className="bg-white text-[#211007] hover:bg-[#f4f4f4]">
+              Escríbenos por WhatsApp
+            </Button>
+          </a>
         </div>
       </section>
 

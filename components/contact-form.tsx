@@ -14,20 +14,46 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000))
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
 
-    toast.success("¡Mensaje enviado correctamente!", {
-      description: "Te contactaremos pronto para ayudarte con tu proyecto.",
-    })
+    // Recoge los datos del formulario
+    const data = {
+      nombre: formData.get("name"),
+      email: formData.get("email"),
+      telefono: formData.get("phone"),
+      proyecto: formData.get("project"),
+      mensaje: formData.get("message"),
+    };
 
-    // Reset form
-    const form = e.target as HTMLFormElement
-    form.reset()
-    setIsSubmitting(false)
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (res.ok) {
+        toast.success("¡Mensaje enviado correctamente!", {
+          description: "Te contactaremos pronto para ayudarte con tu proyecto.",
+        });
+        form.reset();
+      } else {
+        const error = await res.json();
+        toast.error("Error al enviar el mensaje", {
+          description: error?.error || "Inténtalo de nuevo más tarde.",
+        });
+      }
+    } catch (err) {
+      toast.error("Error de red", {
+        description: "No se pudo enviar el mensaje. Inténtalo más tarde.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
