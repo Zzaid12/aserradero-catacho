@@ -1,8 +1,12 @@
+"use client";
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Phone, Truck, Scissors, Users, ShoppingCart, CheckCircle } from "lucide-react"
 import Image from "next/image"
 import { ContactForm } from "@/components/contact-form"
+import { motion } from "framer-motion"
+import { FloatingWhatsApp } from "@/components/floating-whatsapp"
 
 export default function AserraderoCatacho() {
   const woodTypes = [
@@ -10,7 +14,7 @@ export default function AserraderoCatacho() {
       name: "Madera de Pino",
       description: "Maderas blandas ideales para construcción y carpintería general",
       uses: ["construcción", "carpintería", "carpintería"],
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/maderaPino.jpg",
     },
     {
       name: "Madera de Roble",
@@ -108,19 +112,39 @@ export default function AserraderoCatacho() {
           <Image src="/aserradero-hero.jpg" alt="Wood texture background" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-[#211007] bg-opacity-40"></div>
         </div>
-        <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+        <motion.div 
+          className="relative z-10 text-center text-white max-w-4xl mx-auto px-4"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <motion.h2 
+            className="text-5xl md:text-6xl font-bold mb-6"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             Maderas de calidad
             <br />
             para tus proyectos
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
+          </motion.h2>
+          <motion.p 
+            className="text-xl mb-8 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
             Más de 30 años transformando bosques en oportunidades. Ofrecemos la mejor selección de maderas y un servicio
             integral: compra, venta y procesamiento.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          </motion.p>
+          <motion.div 
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+          >
             <a href="#contacto">
-              <Button size="lg" className="bg-[#bea99f] hover:bg-[#211007] text-white">
+              <Button size="lg" className="bg-[#211007] hover:bg-[#000000] text-white">
                 Solicitar información
               </Button>
             </a>
@@ -133,28 +157,38 @@ export default function AserraderoCatacho() {
                 Ver catálogo
               </Button>
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Wood Catalog Section */}
       <section id="catalogo" className="py-16 bg-[#efefef]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold text-[#211007] mb-4">Nuestro catálogo de maderas</h3>
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h3 className="text-4xl font-bold text-[#211007] mb-4">Nuestro catálogo de maderas y leñas</h3>
             <p className="text-lg text-[#211007]">
               Selección premium de maderas nacionales clasificadas
               <br />
               por calidad y listas para tu proyecto
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {woodTypes.slice(0, 3).map((wood, index) => (
-              <div
+              <motion.div
                 key={index}
                 className="group bg-white shadow-lg hover:shadow-xl transition-shadow rounded-lg overflow-visible cursor-pointer md:relative"
                 style={{ minHeight: undefined, height: undefined }}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
               >
                 {/* Imagen SIEMPRE visible */}
                 <div className="aspect-video relative">
@@ -208,12 +242,12 @@ export default function AserraderoCatacho() {
                     <Button className="w-full bg-[#211007] hover:bg-[#000000] text-white mt-auto">Solicitar información</Button>
                   </a>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
           <div className="flex justify-center mt-8">
             <a href="/catalogo">
-              <Button size="lg" className="bg-[#bea99f] hover:bg-[#211007] text-white">
+              <Button size="lg" className="bg-[#211007] hover:bg-[#000000] text-white">
                 Ver todo el catálogo
               </Button>
             </a>
@@ -224,18 +258,31 @@ export default function AserraderoCatacho() {
       {/* Services Section */}
       <section id="servicios" className="py-16 bg-[#ffffff]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h3 className="text-4xl font-bold text-[#211007] mb-4">Nuestros servicios</h3>
             <p className="text-lg text-[#211007]">
               Selección premium de maderas nacionales clasificadas
               <br />
               por calidad y listas para tu proyecto
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="text-center">
+              <motion.div 
+                key={index} 
+                className="text-center"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
                 <div className="w-20 h-20 bg-[#bea99f] rounded-full flex items-center justify-center mx-auto mb-4">
                   <service.icon className="w-10 h-10 text-white" />
                 </div>
@@ -249,7 +296,7 @@ export default function AserraderoCatacho() {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -261,32 +308,65 @@ export default function AserraderoCatacho() {
         style={{ backgroundImage: "url('/listo.jpg?height=400&width=1200')" }}
       >
         <div className="absolute inset-0 bg-[#211007] bg-opacity-70"></div>
-        <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
-          <h3 className="text-4xl font-bold text-white mb-4">¿Listo para tu próximo proyecto?</h3>
-          <p className="text-xl text-white mb-8">
+        <motion.div 
+          className="relative z-10 max-w-4xl mx-auto text-center px-4"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h3 
+            className="text-4xl font-bold text-white mb-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            ¿Listo para tu próximo proyecto?
+          </motion.h3>
+          <motion.p 
+            className="text-xl text-white mb-8"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
             Cuéntanos tu idea y te damos un presupuesto personalizado.
             <br />
             Nuestros expertos te ayudarán a encontrar la madera perfecta
-          </p>
-          <a
-            href="https://wa.me/34690787489" // Cambia este número por el de la dueña en formato internacional sin + ni espacios
-            target="_blank"
-            rel="noopener noreferrer"
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <Button size="lg" className="bg-white text-[#211007] hover:bg-[#f4f4f4]">
-              Escríbenos por WhatsApp
-            </Button>
-          </a>
-        </div>
+            <a
+              href="https://wa.me/34690787489" 
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button size="lg" className="bg-white text-[#211007] hover:bg-[#f4f4f4]">
+                Escríbenos por WhatsApp
+              </Button>
+            </a>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Contact Section */}
       <section id="contacto" className="py-16 bg-[#efefef]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <motion.div 
+            className="text-center mb-12"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h3 className="text-4xl font-bold text-[#211007] mb-4">Contáctanos</h3>
             <p className="text-lg text-[#211007]">Envíanos tu consulta y te responderemos a la brevedad</p>
-          </div>
+          </motion.div>
           <ContactForm />
         </div>
       </section>
@@ -326,6 +406,9 @@ export default function AserraderoCatacho() {
           </div>
         </div>
       </footer>
+      
+      {/* Floating WhatsApp Button */}
+      <FloatingWhatsApp />
     </div>
   )
 }

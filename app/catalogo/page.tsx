@@ -4,13 +4,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
+import { FloatingWhatsApp } from "@/components/floating-whatsapp"
 
 const woodTypes = [
   {
     name: "Madera de Pino",
     description: "Maderas blandas ideales para construcción y carpintería general",
     uses: ["construcción", "carpintería", "carpintería"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/maderaPino.jpg",
   },
   {
     name: "Madera de Roble",
@@ -51,6 +52,14 @@ export default function CatalogoPage() {
   )
   return (
     <div className="min-h-screen bg-[#efefef] py-16">
+      {/* Botón para volver a la página principal */}
+      <div className="fixed top-6 left-6 z-40">
+        <a href="/">
+          <Button className="bg-[#211007] hover:bg-[#000000] text-white rounded-full shadow-lg">
+            ← Volver al inicio
+          </Button>
+        </a>
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-[#211007] mb-4">Catálogo completo de maderas</h2>
@@ -135,6 +144,8 @@ export default function CatalogoPage() {
           )}
         </div>
       </div>
+      {/* Botón flotante de WhatsApp */}
+      <FloatingWhatsApp />
     </div>
   )
 } 
