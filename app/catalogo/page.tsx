@@ -8,39 +8,51 @@ import { FloatingWhatsApp } from "@/components/floating-whatsapp"
 
 const woodTypes = [
   {
-    name: "Madera de Pino",
-    description: "Maderas blandas ideales para construcción y carpintería general",
-    uses: ["construcción", "carpintería", "carpintería"],
+    name: "Estacas de madera de castaño",
+    description: "Estacas de alta calidad para viñedos y cultivos. Disponibles en varias medidas según tus necesidades",
+    uses: ["viñedos", "cultivos", "jardinería", "soportes"],
     image: "/maderaPino.jpg",
   },
   {
-    name: "Madera de Roble",
-    description: "Maderas dura de alta calidad, perfecta para muebles premium",
-    uses: ["mueblería", "decoración", "decoración"],
+    name: "Estacas de topógrafos",
+    description: "Estacas profesionales para trabajos de topografía y medición. Resistente y duraderas",
+    uses: ["topografía", "medición", "construcción", "delimitación"],
     image: "/placeholder.svg?height=200&width=300",
   },
   {
-    name: "Madera de Cedro",
-    description: "Maderas aromática, resistente a insectos y ideal para exteriores",
-    uses: ["exteriores", "closets", "revestimiento"],
+    name: "Cinta de chopo y aliso",
+    description: "Cinta de madera natural ideal para secaderos y estructuras ligeras",
+    uses: ["secadero de pimientos", "estructuras", "revestimientos"],
     image: "/placeholder.svg?height=200&width=300",
   },
   {
-    name: "Madera de Eucalipto",
-    description: "Maderas versátil y económica para múltiples aplicaciones",
-    uses: ["construcción", "pallets", "postes"],
+    name: "Tarimas de abeto",
+    description: "Tarimas de abeto de alta calidad para tejados y porches. Resistente a la intemperie",
+    uses: ["tejados", "porches", "cubiertas", "estructuras"],
     image: "/placeholder.svg?height=200&width=300",
   },
   {
-    name: "Madera de Nogal",
-    description: "Maderas noble con vetas únicas, perfecta para muebles de lujo",
-    uses: ["muebles", "instrumentos", "arte"],
+    name: "Serrín",
+    description: "Serrín de calidad disponible en sacos o granel (por toneladas). Ideal para múltiples usos",
+    uses: ["compostaje", "cama de animales", "artesanía", "industria"],
     image: "/placeholder.svg?height=200&width=300",
   },
   {
-    name: "Madera de Caoba",
-    description: "Maderas tropical de gran belleza y durabilidad excepcional",
-    uses: ["muebles de lujo", "decoración", "decoración"],
+    name: "Tablones de castaño en rústico",
+    description: "Tablones naturales de castaño con acabado rústico. Perfectos para proyectos decorativos",
+    uses: ["encimeras", "mesas", "decoración", "muebles"],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    name: "Rastrel de pino y chopo",
+    description: "Rastrel de pino y chopo para embalaje y construcción. Resistente y versátil",
+    uses: ["embalaje", "construcción", "estructuras", "soportes"],
+    image: "/placeholder.svg?height=200&width=300",
+  },
+  {
+    name: "Ripia de pino y castaño",
+    description: "Ripia tradicional de pino y castaño para tejados y cubiertas. Durabilidad garantizada",
+    uses: ["tejados", "cubiertas", "construcción", "revestimientos"],
     image: "/placeholder.svg?height=200&width=300",
   },
 ]
@@ -62,16 +74,17 @@ export default function CatalogoPage() {
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#211007] mb-4">Catálogo completo de maderas</h2>
+          <h2 className="text-4xl font-bold text-[#211007] mb-4">Catálogo completo de maderas especializadas</h2>
           <p className="text-lg text-[#211007]">
-            Explora todas nuestras opciones de maderas nacionales e importadas, listas para tu proyecto.
+            Especialistas en estacas de castaño para viñedos, tablones rústicos para encimeras, 
+            ripia tradicional para tejados y maderas para construcción. Productos nacionales de la más alta calidad.
           </p>
         </div>
         {/* Filtro de búsqueda */}
         <div className="mb-8 flex justify-center">
           <input
             type="text"
-            placeholder="Buscar madera..."
+            placeholder="Buscar estacas, tablones, ripia..."
             value={search}
             onChange={e => setSearch(e.target.value)}
             className="w-full max-w-md px-4 py-2 border border-[#bea99f] rounded focus:outline-none focus:ring-2 focus:ring-[#bea99f]"
@@ -79,7 +92,7 @@ export default function CatalogoPage() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredWoods.length === 0 ? (
-            <div className="col-span-full text-center text-[#211007] text-lg">No se encontraron maderas.</div>
+            <div className="col-span-full text-center text-[#211007] text-lg">No se encontraron productos. Prueba con términos como "estacas", "tablones", "ripia" o "serrín".</div>
           ) : (
             filteredWoods.map((wood, index) => (
               <div

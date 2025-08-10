@@ -11,39 +11,21 @@ import { FloatingWhatsApp } from "@/components/floating-whatsapp"
 export default function AserraderoCatacho() {
   const woodTypes = [
     {
-      name: "Madera de Pino",
-      description: "Maderas blandas ideales para construcción y carpintería general",
-      uses: ["construcción", "carpintería", "carpintería"],
+      name: "Estacas de madera de castaño",
+      description: "Estacas de alta calidad para viñedos y cultivos",
+      uses: ["viñedos", "cultivos", "jardinería"],
       image: "/maderaPino.jpg",
     },
     {
-      name: "Madera de Roble",
-      description: "Maderas dura de alta calidad, perfecta para muebles premium",
-      uses: ["mueblería", "decoración", "decoración"],
+      name: "Tablones de castaño en rústico",
+      description: "Tablones naturales perfectos para encimeras y mesas",
+      uses: ["encimeras", "mesas", "decoración"],
       image: "/placeholder.svg?height=200&width=300",
     },
     {
-      name: "Madera de Cedro",
-      description: "Maderas aromática, resistente a insectos y ideal para exteriores",
-      uses: ["exteriores", "closets", "revestimiento"],
-      image: "/placeholder.svg?height=200&width=300",
-    },
-    {
-      name: "Madera de Eucalipto",
-      description: "Maderas versátil y económica para múltiples aplicaciones",
-      uses: ["construcción", "pallets", "postes"],
-      image: "/placeholder.svg?height=200&width=300",
-    },
-    {
-      name: "Madera de Nogal",
-      description: "Maderas noble con vetas únicas, perfecta para muebles de lujo",
-      uses: ["muebles", "instrumentos", "arte"],
-      image: "/placeholder.svg?height=200&width=300",
-    },
-    {
-      name: "Madera de Caoba",
-      description: "Maderas tropical de gran belleza y durabilidad excepcional",
-      uses: ["muebles de lujo", "decoración", "decoración"],
+      name: "Ripia de pino y castaño",
+      description: "Ripia tradicional para tejados y cubiertas",
+      uses: ["tejados", "cubiertas", "construcción"],
       image: "/placeholder.svg?height=200&width=300",
     },
   ]
@@ -51,27 +33,21 @@ export default function AserraderoCatacho() {
   const services = [
     {
       icon: Truck,
-      title: "Entrega a domicilio",
+      title: "Transporte a domicilio",
       description: "Llevamos tus pedidos directamente a tu obra o taller",
       features: ["Cobertura regional", "Carga y descarga", "Horario flexible"],
     },
     {
       icon: Scissors,
-      title: "Corte a medida",
+      title: "Medidas personalizadas",
       description: "Cortamos las maderas según tus especificaciones exactas",
       features: ["Precisión", "Sin desperdicios", "Entrega rápida"],
     },
     {
       icon: Users,
-      title: "Asesoría técnica",
+      title: "Asesoramiento",
       description: "Te ayudamos a elegir las maderas perfectas para tu proyecto",
       features: ["Expertos en maderas", "Consulta gratuita", "Soporte técnico"],
-    },
-    {
-      icon: ShoppingCart,
-      title: "Compra de madera",
-      description: "Compramos maderas en pie y troncos de calidad",
-      features: ["Evaluación gratuita", "Precios justos", "Pago inmediato"],
     },
   ]
 
@@ -267,13 +243,13 @@ export default function AserraderoCatacho() {
           >
             <h3 className="text-4xl font-bold text-[#211007] mb-4">Nuestros servicios</h3>
             <p className="text-lg text-[#211007]">
-              Selección premium de maderas nacionales clasificadas
+              Transporte a domicilio, medidas personalizadas y asesoramiento experto
               <br />
-              por calidad y listas para tu proyecto
+              para que tu proyecto sea un éxito
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div 
                 key={index} 
@@ -342,7 +318,7 @@ export default function AserraderoCatacho() {
             transition={{ duration: 0.8, delay: 0.6 }}
           >
             <a
-              href="https://wa.me/34690787489" 
+              href="https://wa.me/34927530602" 
               target="_blank"
               rel="noopener noreferrer"
             >
