@@ -9,8 +9,8 @@ import { FloatingWhatsApp } from "@/components/floating-whatsapp"
 const woodTypes = [
   {
     name: "Estacas de madera de castaño",
-    description: "Estacas de alta calidad para viñedos y cultivos. Disponibles en varias medidas según tus necesidades",
-    uses: ["viñedos", "cultivos", "jardinería", "soportes"],
+    description: "Estacas de alta calidad perfectas para ceramientos. Disponibles en varias medidas según tus necesidades",
+    uses: ["cerramientos", "cultivos", "jardinería", "soportes"],
     image: "/maderaPino.jpg",
   },
   {
@@ -74,17 +74,16 @@ export default function CatalogoPage() {
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#211007] mb-4">Catálogo completo de maderas especializadas</h2>
+          <h2 className="text-4xl font-bold text-[#211007] mb-4">Catálogo completo de maderas</h2>
           <p className="text-lg text-[#211007]">
-            Especialistas en estacas de castaño para viñedos, tablones rústicos para encimeras, 
-            ripia tradicional para tejados y maderas para construcción. Productos nacionales de la más alta calidad.
+            Selección premium de maderas nacionales clasificadas por calidad y listas para tu proyecto
           </p>
         </div>
         {/* Filtro de búsqueda */}
         <div className="mb-8 flex justify-center">
           <input
             type="text"
-            placeholder="Buscar estacas, tablones, ripia..."
+            placeholder="Buscar madera..."
             value={search}
             onChange={e => setSearch(e.target.value)}
             className="w-full max-w-md px-4 py-2 border border-[#bea99f] rounded focus:outline-none focus:ring-2 focus:ring-[#bea99f]"
@@ -92,7 +91,7 @@ export default function CatalogoPage() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredWoods.length === 0 ? (
-            <div className="col-span-full text-center text-[#211007] text-lg">No se encontraron productos. Prueba con términos como "estacas", "tablones", "ripia" o "serrín".</div>
+            <div className="col-span-full text-center text-[#211007] text-lg">No se encontraron maderas.</div>
           ) : (
             filteredWoods.map((wood, index) => (
               <div

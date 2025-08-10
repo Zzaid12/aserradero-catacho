@@ -12,8 +12,8 @@ export default function AserraderoCatacho() {
   const woodTypes = [
     {
       name: "Estacas de madera de castaño",
-      description: "Estacas de alta calidad para viñedos y cultivos",
-      uses: ["viñedos", "cultivos", "jardinería"],
+      description: "Estacas de alta calidad",
+      uses: ["cerramientos", "cultivos", "jardinería"],
       image: "/maderaPino.jpg",
     },
     {
