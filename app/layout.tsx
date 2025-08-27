@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   description:
     "Más de 30 años transformando bosques en oportunidades. Ofrecemos la mejor selección de maderas y un servicio integral.",
   generator: "v0.dev",
+  icons: {
+    icon: "/icono.png",
+    shortcut: "/icono.png",
+    apple: "/icono.png",
+  },
 }
 
 export default function RootLayout({

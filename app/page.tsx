@@ -7,6 +7,34 @@ import Image from "next/image"
 import { ContactForm } from "@/components/contact-form"
 import { motion } from "framer-motion"
 import { FloatingWhatsApp } from "@/components/floating-whatsapp"
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+import { useEffect, useState } from "react"
+
+function CarouselWrapper({ images, alt }: { images: string[]; alt: string }) {
+  const [api, setApi] = useState<any>(null)
+
+  useEffect(() => {
+    if (!api) return
+    const interval = setInterval(() => {
+      api.scrollNext()
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [api])
+
+  return (
+    <div className="w-full h-full relative">
+      <Carousel className="w-full h-full" opts={{ loop: true }} setApi={setApi}>
+        <CarouselContent>
+          {images.map((src, i) => (
+            <CarouselItem key={i} className="relative aspect-video">
+              <Image src={src} alt={`${alt} ${i + 1}`} fill className="object-cover rounded-t-lg" />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+    </div>
+  )
+}
 
 export default function AserraderoCatacho() {
   const woodTypes = [
@@ -14,19 +42,23 @@ export default function AserraderoCatacho() {
       name: "Estacas de madera de castaño",
       description: "Estacas de alta calidad",
       uses: ["cerramientos", "cultivos", "jardinería"],
-      image: "/maderaPino.jpg",
+      image: "/estacas-cerramiento.png",
     },
     {
       name: "Tablones de castaño en rústico",
       description: "Tablones naturales perfectos para encimeras y mesas",
       uses: ["encimeras", "mesas", "decoración"],
-      image: "/placeholder.svg?height=200&width=300",
+      images: [
+        "/madera-castano-encimeras.png",
+        "/madera-castano-tejado.png",
+        "/madera-castano.png",
+      ],
     },
     {
       name: "Ripia de pino y castaño",
       description: "Ripia tradicional para tejados y cubiertas",
       uses: ["tejados", "cubiertas", "construcción"],
-      image: "/placeholder.svg?height=200&width=300",
+      images: ["/ripia-pino-castano.png", "/ripia-pino-castano2.png",],
     },
   ]
 
@@ -57,8 +89,11 @@ export default function AserraderoCatacho() {
       <header className="bg-[#ffffff] shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
-              <h1 className="text-xl font-bold text-[#211007]">Aserradero Catacho</h1>
+            <div className="flex items-center gap-3">
+              <a href="/" className="flex items-center">
+                <Image src="/logo.png" alt="Maderas Catacho" width={140} height={66} className="h-10 w-auto" />
+              </a>
+              <h1 className="text-xl font-bold text-[#211007] hidden sm:block">Aserradero Catacho</h1>
             </div>
             <nav className="hidden md:flex space-x-8">
               <a href="#" className="text-[#211007] hover:text-[#bea99f]">
@@ -168,12 +203,24 @@ export default function AserraderoCatacho() {
               >
                 {/* Imagen SIEMPRE visible */}
                 <div className="aspect-video relative">
-                  <Image
-                    src={wood.image || "/placeholder.svg"}
-                    alt={wood.name}
-                    fill
-                    className="object-cover rounded-t-lg"
-                  />
+                  {(() => {
+                    const multiple = Array.isArray((wood as any).images)
+                      ? (wood as any).images
+                      : Array.isArray((wood as any).image)
+                      ? (wood as any).image
+                      : null
+                    if (multiple) {
+                      return <CarouselWrapper images={multiple} alt={wood.name} />
+                    }
+                    return (
+                      <Image
+                        src={(wood as any).image || "/placeholder.svg"}
+                        alt={wood.name}
+                        fill
+                        className="object-cover rounded-t-lg"
+                      />
+                    )
+                  })()}
                 </div>
                 {/* Título siempre visible */}
                 <div className="p-6">

@@ -2,58 +2,92 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import Image from "next/image"
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
 import { FloatingWhatsApp } from "@/components/floating-whatsapp"
+
+function AutoCarousel({ images, alt }: { images: string[]; alt: string }) {
+  const [api, setApi] = useState<any>(null)
+
+  useEffect(() => {
+    if (!api) return
+    const interval = setInterval(() => {
+      api.scrollNext()
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [api])
+
+  return (
+    <div className="">
+      <Carousel className="w-full h-full" opts={{ loop: true }} setApi={setApi}>
+        <CarouselContent>
+          {images.map((src, i) => (
+            <CarouselItem key={i} className="relative aspect-video">
+              <Image src={src} alt={`${alt} ${i + 1}`} fill className="object-cover rounded-t-lg" />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+    </div>
+  )
+}
 
 const woodTypes = [
   {
     name: "Estacas de madera de castaño",
     description: "Estacas de alta calidad perfectas para ceramientos. Disponibles en varias medidas según tus necesidades",
     uses: ["cerramientos", "cultivos", "jardinería", "soportes"],
-    image: "/maderaPino.jpg",
+    image: "/estacas-cerramiento.png",
   },
   {
     name: "Estacas de topógrafos",
     description: "Estacas profesionales para trabajos de topografía y medición. Resistente y duraderas",
     uses: ["topografía", "medición", "construcción", "delimitación"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/estacas-topografico.png",
   },
   {
     name: "Cinta de chopo y aliso",
     description: "Cinta de madera natural ideal para secaderos y estructuras ligeras",
     uses: ["secadero de pimientos", "estructuras", "revestimientos"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/secadero.png",
   },
   {
     name: "Tarimas de abeto",
     description: "Tarimas de abeto de alta calidad para tejados y porches. Resistente a la intemperie",
     uses: ["tejados", "porches", "cubiertas", "estructuras"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/tarima-abeto.png",
   },
   {
     name: "Serrín",
     description: "Serrín de calidad disponible en sacos o granel (por toneladas). Ideal para múltiples usos",
     uses: ["compostaje", "cama de animales", "artesanía", "industria"],
-    image: "/placeholder.svg?height=200&width=300",
+    images: ["/serrin-sacos.png", "serrin-granel.png",],
   },
   {
     name: "Tablones de castaño en rústico",
     description: "Tablones naturales de castaño con acabado rústico. Perfectos para proyectos decorativos",
     uses: ["encimeras", "mesas", "decoración", "muebles"],
-    image: "/placeholder.svg?height=200&width=300",
+    images: [
+      "/madera-castano-encimeras.png",
+      "/madera-castano-tejado.png",
+      "/madera-castano.png",
+    ],
   },
   {
     name: "Rastrel de pino y chopo",
     description: "Rastrel de pino y chopo para embalaje y construcción. Resistente y versátil",
     uses: ["embalaje", "construcción", "estructuras", "soportes"],
-    image: "/placeholder.svg?height=200&width=300",
+    image: "/rastrel-pino.png",
   },
   {
     name: "Ripia de pino y castaño",
     description: "Ripia tradicional de pino y castaño para tejados y cubiertas. Durabilidad garantizada",
     uses: ["tejados", "cubiertas", "construcción", "revestimientos"],
-    image: "/placeholder.svg?height=200&width=300",
+    images: [
+      "/ripia-pino-castano.png", 
+      "/ripia-pino-castano2.png",
+    ],
   },
 ]
 
@@ -101,12 +135,24 @@ export default function CatalogoPage() {
               >
                 {/* Imagen SIEMPRE visible */}
                 <div className="aspect-video relative">
-                  <Image
-                    src={wood.image || "/placeholder.svg"}
-                    alt={wood.name}
-                    fill
-                    className="object-cover rounded-t-lg"
-                  />
+                  {(() => {
+                    const multiple = Array.isArray((wood as any).images)
+                      ? (wood as any).images
+                      : Array.isArray((wood as any).image)
+                      ? (wood as any).image
+                      : null
+                    if (multiple) {
+                      return <AutoCarousel images={multiple} alt={wood.name} />
+                    }
+                    return (
+                      <Image
+                        src={(wood as any).image || "/placeholder.svg"}
+                        alt={wood.name}
+                        fill
+                        className="object-cover rounded-t-lg"
+                      />
+                    )
+                  })()}
                 </div>
                 {/* Título siempre visible */}
                 <div className="p-6">
