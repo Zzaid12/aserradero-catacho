@@ -101,7 +101,7 @@ export function ContactForm() {
                 name="phone"
                 type="tel"
                 className="border-[#bea99f] focus:border-[#211007]"
-                placeholder="+34 123 456 789"
+                placeholder="+34 927 530 602"
               />
             </div>
             <div className="space-y-2">

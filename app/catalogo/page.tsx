@@ -42,7 +42,7 @@ const woodTypes = [
   },
   {
     name: "Estacas de topógrafos",
-    description: "Estacas profesionales para trabajos de topografía y medición. Resistente y duraderas",
+    description: "Estacas profesionales para trabajos de topografía y medición. Resistentes y duraderas",
     uses: ["topografía", "medición", "construcción", "delimitación"],
     image: "/estacas-topografico.png",
   },
@@ -53,20 +53,20 @@ const woodTypes = [
     image: "/secadero.png",
   },
   {
-    name: "Tarimas de abeto",
-    description: "Tarimas de abeto de alta calidad para tejados y porches. Resistente a la intemperie",
+    name: "Tarima de abeto",
+    description: "Tarima de abeto de alta calidad para tejados y porches. Resistente a la intemperie",
     uses: ["tejados", "porches", "cubiertas", "estructuras"],
     image: "/tarima-abeto.png",
   },
   {
     name: "Serrín",
-    description: "Serrín de calidad disponible en sacos o granel (por toneladas). Ideal para múltiples usos",
+    description: "Serrín de calidad disponible en sacos o a granel (por toneladas). Ideal para múltiples usos",
     uses: ["compostaje", "cama de animales", "artesanía", "industria"],
     images: ["/serrin-sacos.png", "serrin-granel.png",],
   },
   {
     name: "Tablones de castaño en rústico",
-    description: "Tablones naturales de castaño con acabado rústico. Perfectos para proyectos decorativos",
+    description: "Tablones naturales con acabado rústico. Perfectos para proyectos decorativos",
     uses: ["encimeras", "mesas", "decoración", "muebles"],
     images: [
       "/madera-castano-encimeras.png",
@@ -82,12 +82,30 @@ const woodTypes = [
   },
   {
     name: "Ripia de pino y castaño",
-    description: "Ripia tradicional de pino y castaño para tejados y cubiertas. Durabilidad garantizada",
+    description: "Ripia tradicional de pino y castaño para tejados y cubiertas. Alta durabilidad ",
     uses: ["tejados", "cubiertas", "construcción", "revestimientos"],
     images: [
       "/ripia-pino-castano.png", 
       "/ripia-pino-castano2.png",
     ],
+  },
+  {
+    name: "Leña de roble y encina",
+    description: "Leña seleccionada de roble y encina con gran poder calorífico",
+    uses: ["chimenea", "caset", "panadería"],
+    image: "/lena-roble.png",
+  },
+  {
+    name: "Vigas de castaño o cedro",
+    description: "Vigas macizas de castaño o cedro para estructura y exterior",
+    uses: ["tejados" ,"porches", "construcción"],
+    image: "/vigas-cedro.png",
+  },
+  {
+    name: "Cuartones de castaño",
+    description: "Cuartones de castaño para estructuras y carpintería",
+    uses: ["tejados", "porches", "construcción"],
+    image: "/cuartones-castano.png",
   },
 ]
 
@@ -108,9 +126,9 @@ export default function CatalogoPage() {
       </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-[#211007] mb-4">Catálogo completo de maderas</h2>
+          <h2 className="text-4xl font-bold text-[#211007] mb-4">Catálogo</h2>
           <p className="text-lg text-[#211007]">
-            Selección premium de maderas nacionales clasificadas por calidad y listas para tu proyecto
+            Selección premium de maderas y leñas nacionales clasificadas por calidad y listas para tu proyecto
           </p>
         </div>
         {/* Filtro de búsqueda */}

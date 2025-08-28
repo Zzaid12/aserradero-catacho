@@ -64,10 +64,10 @@ export default function AserraderoCatacho() {
 
   const services = [
     {
-      icon: Truck,
-      title: "Transporte a domicilio",
-      description: "Llevamos tus pedidos directamente a tu obra o taller",
-      features: ["Cobertura regional", "Carga y descarga", "Horario flexible"],
+      icon: Users,
+      title: "Asesoramiento",
+      description: "Te ayudamos a elegir las maderas perfectas para tu proyecto",
+      features: ["Expertos en maderas", "Consulta gratuita", "Soporte técnico"],
     },
     {
       icon: Scissors,
@@ -76,10 +76,10 @@ export default function AserraderoCatacho() {
       features: ["Precisión", "Sin desperdicios", "Entrega rápida"],
     },
     {
-      icon: Users,
-      title: "Asesoramiento",
-      description: "Te ayudamos a elegir las maderas perfectas para tu proyecto",
-      features: ["Expertos en maderas", "Consulta gratuita", "Soporte técnico"],
+      icon: Truck,
+      title: "Transporte a domicilio",
+      description: "Llevamos tus pedidos directamente a tu obra o taller",
+      features: ["Cobertura regional", "Carga y descarga", "Horario flexible"],
     },
   ]
 
@@ -93,7 +93,7 @@ export default function AserraderoCatacho() {
               <a href="/" className="flex items-center">
                 <Image src="/logo.png" alt="Maderas Catacho" width={140} height={66} className="h-10 w-auto" />
               </a>
-              <h1 className="text-xl font-bold text-[#211007] hidden sm:block">Aserradero Catacho</h1>
+              <h1 className="text-xl font-bold text-[#211007] hidden sm:block">Maderas Catacho</h1>
             </div>
             <nav className="hidden md:flex space-x-8">
               <a href="#" className="text-[#211007] hover:text-[#bea99f]">
@@ -109,10 +109,12 @@ export default function AserraderoCatacho() {
                 Contacto
               </a>
             </nav>
-            <Button className="bg-[#211007] hover:bg-[#000000] text-white">
-              <Phone className="w-4 h-4 mr-2" />
-              Llama ahora
-            </Button>
+            <a href="tel:+34927530602">
+              <Button className="bg-[#211007] hover:bg-[#000000] text-white">
+                <Phone className="w-4 h-4 mr-2" />
+                Llama ahora
+              </Button>
+            </a>
           </div>
         </div>
       </header>
@@ -388,7 +390,7 @@ export default function AserraderoCatacho() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-4xl font-bold text-[#211007] mb-4">Contáctanos</h3>
-            <p className="text-lg text-[#211007]">Envíanos tu consulta y te responderemos a la brevedad</p>
+            <p className="text-lg text-[#211007]">Envíanos tu consulta y te responderemos con la mayor brevedad posible</p>
           </motion.div>
           <ContactForm />
         </div>
@@ -400,27 +402,32 @@ export default function AserraderoCatacho() {
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <h4 className="text-2xl font-bold mb-4">
-                ASERRADERO
+                MADERAS
                 <br />
                 CATACHO
               </h4>
             </div>
             <div>
-              <h5 className="font-bold mb-4">Oficinas en Navalmoral</h5>
-              <p className="text-sm text-[#bea99f]">
+              <h5 className="font-bold mb-4">Oficinas</h5>
+              <p className="text-sm text-[#bea99f] mb-4">
+                Navalmoral de la Mata
+                <br />
                 Calle de la Industria, 15
                 <br />
-                Navalmoral de la Mata, Cáceres
+                10300, Cáceres
+              </p>
+              <p className="text-sm text-[#bea99f]">
+                Jarandilla de la Vera
                 <br />
-                10300
+                C. de San Gregorio, 27
+                <br />
+                10450, Cáceres
               </p>
             </div>
             <div>
-              <h5 className="font-bold mb-4">Horario</h5>
-              <p className="text-sm text-[#bea99f]">
-                Lunes a Viernes: 8:00 h - 18:00 h<br />
-                Sábado: 9:00 h - 14:00 h
-              </p>
+              <h5 className="font-bold mb-4">Horarios</h5>
+              <p className="text-sm text-[#bea99f] mb-2">Navalmoral de la Mata: 7:00 h - 15:00 h</p>
+              <p className="text-sm text-[#bea99f]">Jarandilla de la Vera: 9:00 h - 13:00 h</p>
             </div>
           </div>
           <div className="border-t border-[#bea99f] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">

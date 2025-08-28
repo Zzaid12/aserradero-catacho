@@ -15,7 +15,7 @@ export function FloatingWhatsApp() {
       whileTap={{ scale: 0.95 }}
     >
       <a
-        href="https://wa.me/34690787489"
+        href="https://wa.me/34927530602"
         target="_blank"
         rel="noopener noreferrer"
         className="block"
