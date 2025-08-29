@@ -147,7 +147,7 @@ export default function AserraderoCatacho() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Más de 30 años transformando bosques en oportunidades. Ofrecemos la mejor selección de maderas y un servicio
+            Más de 30 años transformando bosques en oportunidades. Ofrecemos la mejor selección de maderas y leñas y un servicio
             integral: compra, venta y procesamiento.
           </motion.p>
           <motion.div 
