@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Phone, Truck, Scissors, Users, ShoppingCart, CheckCircle } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import { ContactForm } from "@/components/contact-form"
 import { motion } from "framer-motion"
 import { FloatingWhatsApp } from "@/components/floating-whatsapp"
@@ -426,13 +427,17 @@ export default function AserraderoCatacho() {
             </div>
             <div>
               <h5 className="font-bold mb-4">Horarios</h5>
-              <p className="text-sm text-[#bea99f] mb-2">Navalmoral de la Mata: 7:00 h - 15:00 h</p>
-              <p className="text-sm text-[#bea99f]">Jarandilla de la Vera: 9:00 h - 13:00 h</p>
+              <p className="text-sm text-[#bea99f] mb-2">Navalmoral de la Mata: De lunes a viernes de 7:00 h - 15:00 h</p>
+              <p className="text-sm text-[#bea99f]">Jarandilla de la Vera: De lunes a viernes de 9:00 h - 13:00 h</p>
             </div>
           </div>
           <div className="border-t border-[#bea99f] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-[#bea99f]">Aviso legal</p>
-            <p className="text-sm text-[#bea99f]">Política de privacidad</p>
+            <Link href="/aviso-legal" className="text-sm text-[#bea99f] hover:text-white transition-colors">
+              Aviso legal
+            </Link>
+            <Link href="/politica-privacidad" className="text-sm text-[#bea99f] hover:text-white transition-colors">
+              Política de privacidad
+            </Link>
           </div>
         </div>
       </footer>

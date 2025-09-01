@@ -55,13 +55,13 @@ const woodTypes = [
   {
     name: "Tarima de abeto",
     description: "Tarima de abeto de alta calidad para tejados y porches. Resistente a la intemperie",
-    uses: ["tejados", "porches", "cubiertas", "estructuras"],
+    uses: ["tejados", "porches", "cubiertas"],
     image: "/tarima-abeto.png",
   },
   {
     name: "Serrín",
     description: "Serrín de calidad disponible en sacos o a granel (por toneladas). Ideal para múltiples usos",
-    uses: ["compostaje", "cama de animales", "artesanía", "industria"],
+    uses: ["cama de animales", "artesanía", "industria", "otros usos"],
     images: ["/serrin-sacos.png", "serrin-granel.png",],
   },
   {
@@ -77,13 +77,13 @@ const woodTypes = [
   {
     name: "Rastrel de pino y chopo",
     description: "Rastrel de pino y chopo para embalaje y construcción. Resistente y versátil",
-    uses: ["embalaje", "construcción", "estructuras", "soportes"],
+    uses: ["embalaje", "construcción", "estructuras"],
     image: "/rastrel-pino.png",
   },
   {
     name: "Ripia de pino y castaño",
     description: "Ripia tradicional de pino y castaño para tejados y cubiertas. Alta durabilidad ",
-    uses: ["tejados", "cubiertas", "construcción", "revestimientos"],
+    uses: ["tejados", "cubiertas", "construcción", "varios usos"],
     images: [
       "/ripia-pino-castano.png", 
       "/ripia-pino-castano2.png",
