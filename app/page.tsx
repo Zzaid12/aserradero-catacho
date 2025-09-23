@@ -187,7 +187,7 @@ export default function AserraderoCatacho() {
           >
             <h3 className="text-4xl font-bold text-[#211007] mb-4">Nuestro catálogo de maderas y leñas</h3>
             <p className="text-lg text-[#211007]">
-              Selección premium de maderas nacionales clasificadas
+              Selección premium de maderas y leñas nacionales clasificadas
               <br />
               por calidad y listas para tu proyecto
             </p>
