@@ -99,13 +99,16 @@ const woodTypes = [
     name: "Vigas de castaño o cedro",
     description: "Vigas macizas de castaño o cedro para estructura y exterior",
     uses: ["tejados" ,"porches", "construcción"],
-    image: "/vigas-cedro.png",
+    images: [
+      "/vigas1.png", 
+      "/vigas2.png",
+    ],
   },
   {
     name: "Cuartones de castaño",
     description: "Cuartones de castaño para estructuras y carpintería",
     uses: ["tejados", "porches", "construcción"],
-    image: "/cuartones-castano.png",
+    image: "/cuartones.png",
   },
 ]
 

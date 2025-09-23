@@ -32,7 +32,7 @@ export default function AvisoLegalPage() {
           <div className="mb-8">
             <h2 className="text-3xl font-bold text-[#211007] mb-4">MADERAS CATACHO</h2>
             <p className="text-lg text-gray-700">
-              Última actualización: {new Date().toLocaleDateString('es-ES')}
+             
             </p>
           </div>
 
@@ -44,11 +44,11 @@ export default function AvisoLegalPage() {
             <div className="bg-gray-50 p-4 rounded-lg">
               <p className="text-gray-700">
                 <strong>Denominación social:</strong> Maderas Catacho<br />
-                <strong>NIF/CIF:</strong> [Número fiscal]<br />
-                <strong>Domicilio:</strong> Calle de la Industria, 15, 10300 Navalmoral de la Mata, Cáceres<br />
+                <strong>NIF/CIF:</strong>  074500 45 T<br />
+                <strong>Domicilio:</strong> Calle Román Gordo, 8, 10300 Navalmoral de la Mata, Cáceres<br />
                 <strong>Email:</strong> info@aserraderocatacho.com<br />
                 <strong>Teléfono:</strong> +34 927 530 602<br />
-                <strong>Actividad:</strong> Comercio al por mayor de madera, materiales de construcción y artículos de ferretería
+                <strong>Actividad:</strong> TRANSFORMACIÓN DE TRONCOS EN TABLAS TABLONES, VIGAS Y OTROS PRODUCTOS DE MADEDA ASERRADA
               </p>
             </div>
           </section>
@@ -152,7 +152,7 @@ export default function AvisoLegalPage() {
             <div className="bg-gray-50 p-4 rounded-lg">
               <p className="text-gray-700">
                 <strong>Maderas Catacho</strong><br />
-                Calle de la Industria, 15<br />
+                Calle Germán Gordo, 8<br />
                 10300 Navalmoral de la Mata, Cáceres<br />
                 Email: info@aserraderocatacho.com<br />
                 Teléfono: +34 927 530 602
@@ -164,3 +164,5 @@ export default function AvisoLegalPage() {
     </div>
   )
 }
+
+
