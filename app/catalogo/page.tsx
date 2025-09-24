@@ -107,7 +107,7 @@ const woodTypes = [
   {
     name: "Tablas y tablones de pino",
     description: "Cuartones de castaño para estructuras y carpintería",
-    uses: ["tejados", "porches", "construcción"],
+    uses: ["para enconfrar", "otros usos"],
     image: "/cuartones.png",
   },
 ]
