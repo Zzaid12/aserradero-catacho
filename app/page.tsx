@@ -51,7 +51,6 @@ export default function AserraderoCatacho() {
       uses: ["encimeras", "mesas", "decoración"],
       images: [
         "/madera-castano-encimeras.png",
-        "/madera-castano-tejado.png",
         "/madera-castano.png",
       ],
     },

@@ -70,7 +70,6 @@ const woodTypes = [
     uses: ["encimeras", "mesas", "decoración", "muebles"],
     images: [
       "/madera-castano-encimeras.png",
-      "/madera-castano-tejado.png",
       "/madera-castano.png",
     ],
   },
@@ -96,16 +95,17 @@ const woodTypes = [
     image: "/lena-roble.png",
   },
   {
-    name: "Vigas de castaño o cedro",
+    name: "Vigas y cuartones de castaño o cedro",
     description: "Vigas macizas de castaño o cedro para estructura y exterior",
     uses: ["tejados" ,"porches", "construcción"],
     images: [
       "/vigas1.png", 
       "/vigas2.png",
+      "/madera-castano-tejado.png",
     ],
   },
   {
-    name: "Cuartones de castaño",
+    name: "Tablas y tablones de pino",
     description: "Cuartones de castaño para estructuras y carpintería",
     uses: ["tejados", "porches", "construcción"],
     image: "/cuartones.png",
