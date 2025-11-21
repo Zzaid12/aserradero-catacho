@@ -1,24 +1,38 @@
-import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { NextRequest, NextResponse } from "next/server"
+import nodemailer from "nodemailer"
 
 export async function POST(req: NextRequest) {
-  const { nombre, email, telefono, proyecto, mensaje } = await req.json();
+  const { nombre, email, telefono, proyecto, mensaje } = await req.json()
 
-  // Configura el transporter con los datos de tu SMTP de DonDominio
+  const smtpHost = process.env.SMTP_HOST ?? "smtp.dondominio.com"
+  const smtpPort = Number(process.env.SMTP_PORT ?? 587)
+  const smtpUser = process.env.SMTP_USER
+  const smtpPass = process.env.SMTP_PASS
+
+  if (!smtpUser || !smtpPass) {
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "Faltan las credenciales SMTP (SMTP_USER / SMTP_PASS). Configúralas y vuelve a intentarlo.",
+      },
+      { status: 500 },
+    )
+  }
+
   const transporter = nodemailer.createTransport({
-    host: "smtp.dondominio.com", // Cambia si tu host es diferente
-    port: 587,
-    secure: false,
+    host: smtpHost,
+    port: smtpPort,
+    secure: smtpPort === 465,
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user: smtpUser,
+      pass: smtpPass,
     },
-  });
+  })
 
   try {
     await transporter.sendMail({
-      from: `"Web Aserradero" <${process.env.SMTP_USER}>`,
-      to: "info@aserraderocatacho.es", // Cambia por el correo real de la dueña si es necesario
+      from: `"Web Aserradero" <${smtpUser}>`,
+      to: process.env.CONTACT_TO ?? "info@aserraderocatacho.es",
       subject: "Nueva consulta desde la web",
       text: `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${telefono}\nProyecto: ${proyecto}\nMensaje: ${mensaje}`,
       html: `<p><b>Nombre:</b> ${nombre}</p>
@@ -26,10 +40,10 @@ export async function POST(req: NextRequest) {
              <p><b>Teléfono:</b> ${telefono}</p>
              <p><b>Proyecto:</b> ${proyecto}</p>
              <p><b>Mensaje:</b><br/>${mensaje}</p>`,
-    });
+    })
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true })
   } catch (error) {
-    return NextResponse.json({ ok: false, error: (error as Error).message }, { status: 500 });
+    return NextResponse.json({ ok: false, error: (error as Error).message }, { status: 500 })
   }
 }
