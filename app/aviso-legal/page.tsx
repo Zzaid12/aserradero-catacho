@@ -153,7 +153,7 @@ export default function AvisoLegalPage() {
               <p className="text-gray-700">
                 <strong>Maderas Catacho</strong><br />
                 Calle Román Gordo, 8<br />
-                10300 Navalmoral de la Mata, Cáceres<br />
+                10300 Navalmoral de la Mata, Cáceres.<br />
                 Email: info@aserraderocatacho.com<br />
                 Teléfono: +34 927 530 602
               </p>
